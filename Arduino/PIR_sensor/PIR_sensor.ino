@@ -1,8 +1,14 @@
 
+#include <ESP8266WiFi.h>
+
+
+#include <WIFIManager.h>
+
 int Status= 12; //Pin D6
 int sensor = 13; //Pin D7
 int state = 0 ;
-void setup() {
+void setup() 
+{
   // put your setup code here, to run once:
   Serial.begin(9600);
   pinMode(sensor, INPUT);   // declare sensor as input
@@ -15,14 +21,17 @@ void loop() {
 
 
    state = digitalRead(sensor);
-    if(state == HIGH) {
-      digitalWrite (Status, HIGH);
-      Serial.print("\n Motion detected!");
-      delay(1000);
+    if(state == HIGH) 
+    {
+      digitalWrite(Status, HIGH);
+      //Serial.print("\n Motion detected!");
+      //delay(1);
+      //digitalWrite(Status, LOW);
     }
-    else {
-      digitalWrite (Status, LOW);
-      Serial.print("\n Motion absent!");
-      delay(1000);
+    else
+      {
+        digitalWrite(Status, LOW);
+        //Serial.print("\n Motion absent!");
+        //delay(1000);
       }
 }
